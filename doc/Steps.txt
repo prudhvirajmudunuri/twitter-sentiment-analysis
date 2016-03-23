@@ -1,0 +1,15 @@
+Go to spark path ---> run ./bin/spark-shell
+
+****SPARK*********
+
+scala> val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+> import sqlContext.implicits._
+
+
+
+> val path = "/home/sindhu/Desktop/BigDataProject/***.json"
+> val tweets = sqlContext.jsonFile(path)
+> tweets.printSchema()
+> tweets.registerTempTable("tweets")
+> val total = sqlContext.sql("SELECT count(*) FROM people")
+> total.show()
